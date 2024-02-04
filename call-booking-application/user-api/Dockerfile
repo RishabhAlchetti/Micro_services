@@ -1,8 +1,9 @@
 FROM node:17.9.0-slim
 LABEL maintainer="Rishabh"
-RUN useradd userapi
+RUN RUN useradd -m userapi
 WORKDIR /app
 COPY . .
+RUN chown -R userapi:userapi /app
 RUN npm install
 EXPOSE 1004
 USER userapi
